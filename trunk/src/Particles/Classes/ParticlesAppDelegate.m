@@ -9,7 +9,6 @@
 #import "ParticlesAppDelegate.h"
 #import "GLViewController.h"
 #import "GLView.h"
-#import "UIImage-NSCoding.h"
 
 
 @implementation ParticlesAppDelegate
