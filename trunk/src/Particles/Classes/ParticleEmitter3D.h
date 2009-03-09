@@ -10,8 +10,15 @@
 
 #import "OpenGLCommon.h"
 
+// ========================================================================
 // Generates float from -1.0 to 1.0 for calculating random variance
-#define Particle3DRandom() (((float)(arc4random() % 100) / 50.0) - 1.0)
+// ========================================================================
+// Little slower, little more random
+//#define Particle3DRandom() (((float)(arc4random() % 100) / 50.0) - 1.0)
+// ========================================================================
+// Little faster, little less random
+#define Particle3DRandom() (((double) (lrand48() % 100) / 50.0) - 1.0)
+// ========================================================================
 
 // Old version, for doing GL_TRIANGLES
 #define DeclareSquare() static const GLfloat square[18] = { 0.01, 0.01, 0.0, -0.01,  0.01, 0.0,0.01, -0.01, 0.0,0.01, -0.01, 0.0,-0.01,  0.01, 0.0, -0.01, -0.01, 0.0 }    

@@ -26,8 +26,6 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	// TODO: Figure out why this wouldn't work in the controller but works here
-	
-	
 	if ([touches count] > 1)
 	{
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"click" ofType:@"wav"];
@@ -46,7 +44,11 @@
 		if (currentIndex >= [emitters count])
 			currentIndex = 0;
 		
-		[[emitters objectAtIndex:currentIndex] startEmitting];
+		ParticleEmitter3D *nextEmitter = [emitters objectAtIndex:currentIndex];
+		
+		NSLog(@"Emitter: %@", nextEmitter);
+		[nextEmitter startEmitting];
+//		[nextEmitter performSelector:@selector(startEmitting) withObject:nil afterDelay:0.1];
 	}
 
 }
