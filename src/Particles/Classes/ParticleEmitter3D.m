@@ -321,7 +321,8 @@ finishColorVariance:(Color3D)inFinishColorVariance
 particleSizeVariance:(GLfloat)inParticleSizeVariance
 		   texture:(OpenGLTexture3D *)inTexture;
 {
-	if ((self = [super init]))
+	self = [super init];
+	if (self)
 	{
 		self.identifier = [ParticleEmitter3D getNextIdentifier];
 		self.name = inName;
@@ -352,9 +353,12 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 #pragma mark -
 - (void)drawSelf
 {
-	if (stopped)
-		return;
-	
+//	if (stopped)
+//	{
+//		NSLog(@"Stopped");
+//		return;
+//	}
+		
 	int particleCounter = 0;
 	Particle3D *oneParticle = particle;
 	
@@ -832,16 +836,16 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 }
 - (void)kill
 {
-	NSLog(@"Killing %@", self);
-	stopped = YES;
+	//	NSLog(@"Killing %@", self);
+	//	stopped = YES;
 	
 	// TODO: There's a problem with deallocating particles. 
 	// Somehow, the first particle in the pool ends up with a prev value 
 	// pointing to the last object in the list, causing an infinite loop. 
 	// Not sure where it's getting introduced.
-//	Particle3DFreeCascade(particle);
-//	Particle3DFreeCascade(particlePool);
-	[self flushArrays];
+	//	Particle3DFreeCascade(particle);
+	//	Particle3DFreeCascade(particlePool);
+	//	[self flushArrays];
 }
 - (void)stopEmitting
 {
@@ -853,48 +857,33 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 	switch (mode) 
 	{
 		case ParticleEmitter3DDrawPoints:
-		{
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] );
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles]);
 			break;
-		}
 		case ParticleEmitter3DDrawLines:
-		{
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] * 2);
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles] * 2);
 			break;
-		}
 		case ParticleEmitter3DDrawTriangles:
-		{
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] * 3);
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles] * 3);
 			break;
-		}
 		case ParticleEmitter3DDrawDiamonds:
-		{
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] * 6);
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles] * 6);				
 			break;
-		}
-		case ParticleEmitter3DDrawSquares:
 		case ParticleEmitter3DDrawTextureMap:
-		{
+			textureCoords = malloc(sizeof(GLfloat) * 2 * [self theoreticalMaxParticles] * 4);
+			normals = calloc(sizeof(GLfloat) * [self theoreticalMaxParticles], 6);
+			// NO BREAK HERE
+		case ParticleEmitter3DDrawSquares:
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] * 4);
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles] * 4);
-			if (mode == ParticleEmitter3DDrawTextureMap)
-			{
-				textureCoords = malloc(sizeof(GLfloat) * 2 * [self theoreticalMaxParticles] * 4);
-				normals = calloc(sizeof(GLfloat) * [self theoreticalMaxParticles], 6);
-				
-			}
 			break;
-		}
 		case ParticleEmitter3DDrawCircles:
-		{
 			vertices = malloc(sizeof(GLfloat) * 3 * [self theoreticalMaxParticles] * 11);
 			vertexColors = malloc(sizeof(GLfloat) * 4 * [self theoreticalMaxParticles] * 11);
 			break;
-		}
 		default:
 			break;
 	}
@@ -929,13 +918,13 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 }
 - (void)flushPool
 {
-	if (!isEmitting)
-	{	
-		Particle3DFreeCascade(particlePool);
-		Particle3DFreeCascade(particle);
-		self.particle = NULL;
-		self.particlePool = NULL;
-	}
+//	if (!isEmitting)
+//	{	
+//		Particle3DFreeCascade(particlePool);
+//		Particle3DFreeCascade(particle);
+//		self.particle = NULL;
+//		self.particlePool = NULL;
+//	}
 }
 #pragma mark -
 - (void)dealloc
