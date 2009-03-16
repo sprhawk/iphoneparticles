@@ -174,8 +174,8 @@ void Particle3DCullDeadParticles(ParticleEmitter3D *emitter)
 		}
 		oneParticle = nextParticle;
 	}
-	
-	
+//	if (emitter.particle==particle)
+//        emitter.particle = particleNext;
 }
 
 // This is going to fire a lot, so we avoid the messaging overhead:
@@ -194,7 +194,7 @@ void Particle3DMoveAndCreateParticles( NSTimeInterval timeElapsed /*since last c
 	// enough to cause even 1 particle to be emitted. To deal with this, we need to keep
 	// track of partial count, and use it to bump the particles emitted up to 1 once enough
 	// fractional particles have accumulated.
-	GLfloat partialCount = 0;
+	static GLfloat partialCount = 0;
 	partialCount += (GLfloat)(emitter.particlesEmittedPerSecond) * timeElapsed;
 	if (partialCount >= 1.0)
 	{
@@ -238,6 +238,7 @@ void Particle3DMoveAndCreateParticles( NSTimeInterval timeElapsed /*since last c
 				Particle3DAddNewParticleToList(emitter, direction, now + howLongToLive, finish, start, particleSize);
 		}	
 	}
+	oneParticle = emitter.particle;	
 	while (oneParticle != NULL)
 	{
 		oneParticle->lastPosition = oneParticle->position;
@@ -343,7 +344,7 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 		self.forceVariance = inforceVariance;
 		self.mode = inMode;
 		self.particleSize = inParticleSize;
-		self.particleSizeVariance = inParticleSize;
+		self.particleSizeVariance = inParticleSizeVariance;
 		self.texture = inTexture;
 		lastDrawTime = 0.0;
 		currentParticleCount = 1;		
@@ -596,6 +597,7 @@ particleSizeVariance:(GLfloat)inParticleSizeVariance
 				break;
 			}
 			case ParticleEmitter3DDrawSquares:
+				// TODO: Look into Point Sprites for this
 			case ParticleEmitter3DDrawTextureMap:
 			{	
 				if (mode == ParticleEmitter3DDrawTextureMap)
