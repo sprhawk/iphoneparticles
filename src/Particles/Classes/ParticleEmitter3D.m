@@ -98,6 +98,10 @@ void Particle3DMoveParticleToPool(Particle3D *particle, ParticleEmitter3D *emitt
 	// And point the pool at the new first member
 	emitter.particlePool = particle;
 	
+	// update emitter particle start list
+    if (emitter.particle==particle)
+        emitter.particle = particleNext;
+	
 }
 void Particle3DGetParticleFromPool(ParticleEmitter3D *emitter)
 {	
