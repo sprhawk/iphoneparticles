@@ -4,7 +4,7 @@
 #import "ConstantsAndMacros.h"
 
 @class OpenGLWaveFrontMaterial;
-
+ 
 #pragma mark -
 #pragma mark Color3D
 #pragma mark -
