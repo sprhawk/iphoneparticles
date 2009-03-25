@@ -17,6 +17,8 @@
 		1F3B9A2D0EF2145700286867 /* ParticlesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* ParticlesAppDelegate.m */; };
 		1F5240820F4E0A0A00445577 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F5240810F4E0A0A00445577 /* click.wav */; };
 		1F52409D0F4E0A4C00445577 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F52409C0F4E0A4C00445577 /* AudioToolbox.framework */; };
+		1F6440F00F7A7A190063906D /* vsinf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6440EA0F7A7A190063906D /* vsinf.cpp */; };
+		1F6440F10F7A7A190063906D /* matrix_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6440EB0F7A7A190063906D /* matrix_impl.cpp */; };
 		1F69C9B70F1BCB440060215C /* texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F69C9B60F1BCB440060215C /* texture.jpg */; };
 		1F69C9ED0F1BCE580060215C /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F69C9EC0F1BCE580060215C /* texture.png */; };
 		1FB90FDE0EF46C880086835B /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB90FDD0EF46C880086835B /* GLViewController.m */; };
@@ -44,6 +46,12 @@
 		1F3B9A820EF2151B00286867 /* Particles_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		1F5240810F4E0A0A00445577 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		1F52409C0F4E0A4C00445577 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		1F6440EA0F7A7A190063906D /* vsinf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vsinf.cpp; sourceTree = "<group>"; };
+		1F6440EB0F7A7A190063906D /* matrix_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix_impl.cpp; sourceTree = "<group>"; };
+		1F6440EC0F7A7A190063906D /* common_macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_macros.h; sourceTree = "<group>"; };
+		1F6440ED0F7A7A190063906D /* vsinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vsinf.h; sourceTree = "<group>"; };
+		1F6440EE0F7A7A190063906D /* vfp_clobbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vfp_clobbers.h; sourceTree = "<group>"; };
+		1F6440EF0F7A7A190063906D /* matrix_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix_impl.h; sourceTree = "<group>"; };
 		1F69C9B60F1BCB440060215C /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture.jpg; sourceTree = "<group>"; };
 		1F69C9EC0F1BCE580060215C /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		1FB90FDC0EF46C880086835B /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLViewController.h; path = Classes/GLViewController.h; sourceTree = SOURCE_ROOT; };
@@ -84,6 +92,19 @@
 				1D6058910D05DD3D006BFB54 /* Particles.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1F6440DC0F7A79DB0063906D /* VFPMathLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1F6440EA0F7A7A190063906D /* vsinf.cpp */,
+				1F6440EB0F7A7A190063906D /* matrix_impl.cpp */,
+				1F6440EC0F7A7A190063906D /* common_macros.h */,
+				1F6440ED0F7A7A190063906D /* vsinf.h */,
+				1F6440EE0F7A7A190063906D /* vfp_clobbers.h */,
+				1F6440EF0F7A7A190063906D /* matrix_impl.h */,
+			);
+			path = VFPMathLibrary;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -137,6 +158,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F6440DC0F7A79DB0063906D /* VFPMathLibrary */,
 				1F11B2140F0AA272002B2921 /* OpenGLCommon.h */,
 				1FFC28B70EF403B30094EAC8 /* ConstantsAndMacros.h */,
 				1F3B9A2C0EF2145700286867 /* ParticlesAppDelegate.h */,
@@ -220,6 +242,8 @@
 				1F11B27C0F0AABEE002B2921 /* ParticleEmitter3D.m in Sources */,
 				1FCF04B90F0D884A0045C647 /* ParticleEmitter3D-Factories.m in Sources */,
 				1FD8E9340F0EA3DB00CE4B40 /* OpenGLTexture3D.m in Sources */,
+				1F6440F00F7A7A190063906D /* vsinf.cpp in Sources */,
+				1F6440F10F7A7A190063906D /* matrix_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
