@@ -48,10 +48,10 @@
 		
 		NSLog(@"Emitter: %@", nextEmitter);
 		[nextEmitter startEmitting];
-//		[nextEmitter performSelector:@selector(startEmitting) withObject:nil afterDelay:0.1];
+		//		[nextEmitter performSelector:@selector(startEmitting) withObject:nil afterDelay:0.1];
 	}
-
 }
+
 
 void releaseScreenshotData(void *info, const void *data, size_t size) 
 {
@@ -128,9 +128,9 @@ void releaseScreenshotData(void *info, const void *data, size_t size)
 	// Configure it so that it is opaque, does not retain the contents of the backbuffer when displayed, and uses RGBA8888 color.
 	eaglLayer.opaque = YES;
 	eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-										[NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
-										kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
-										nil];
+									[NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
+									kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
+									nil];
 	
 	// Create our EAGLContext, and if successful make it current and create our framebuffer.
 	context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
@@ -188,7 +188,7 @@ void releaseScreenshotData(void *info, const void *data, size_t size)
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, depthRenderbuffer);
 	glRenderbufferStorageOES(GL_RENDERBUFFER_OES, GL_DEPTH_COMPONENT16_OES, backingWidth, backingHeight);
 	glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT_OES, GL_RENDERBUFFER_OES, depthRenderbuffer);
-
+	
 	if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES)
 	{
 		NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
@@ -249,16 +249,16 @@ void releaseScreenshotData(void *info, const void *data, size_t size)
 	}
 	
 	glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
-
+	
 	[controller drawView:self];
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
-
+	
 	// TODO: Investigate where 501 error code is coming from - doesn't seem to affect anything.
-//	GLenum err = glGetError();
-//	if(err)
-//		NSLog(@"%x error", err);
+	//	GLenum err = glGetError();
+	//	if(err)
+	//		NSLog(@"%x error", err);
 }
 
 // Stop animating and release resources when they are no longer needed.
