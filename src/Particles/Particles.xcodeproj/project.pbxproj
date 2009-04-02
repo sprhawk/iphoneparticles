@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		1F11B2170F0AA294002B2921 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11B2150F0AA294002B2921 /* GLView.m */; };
 		1F11B27C0F0AABEE002B2921 /* ParticleEmitter3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11B27B0F0AABEE002B2921 /* ParticleEmitter3D.m */; };
+		1F1CDF310F853B850013DAE0 /* star.pvr4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CDF300F853B850013DAE0 /* star.pvr4 */; };
 		1F22D0FF0F1D38B500789128 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F22D0FE0F1D38B500789128 /* Particle.png */; };
 		1F3B9A2D0EF2145700286867 /* ParticlesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* ParticlesAppDelegate.m */; };
 		1F5240820F4E0A0A00445577 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F5240810F4E0A0A00445577 /* click.wav */; };
@@ -31,13 +32,14 @@
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* GLGravity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLGravity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F11B2140F0AA272002B2921 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = Classes/OpenGLCommon.h; sourceTree = SOURCE_ROOT; };
 		1F11B2150F0AA294002B2921 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = Classes/GLView.m; sourceTree = SOURCE_ROOT; };
 		1F11B2160F0AA294002B2921 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = Classes/GLView.h; sourceTree = SOURCE_ROOT; };
 		1F11B27A0F0AABEE002B2921 /* ParticleEmitter3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter3D.h; sourceTree = "<group>"; };
 		1F11B27B0F0AABEE002B2921 /* ParticleEmitter3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleEmitter3D.m; sourceTree = "<group>"; };
+		1F1CDF300F853B850013DAE0 /* star.pvr4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.pvr4; sourceTree = "<group>"; };
 		1F22D0FE0F1D38B500789128 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* ParticlesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticlesAppDelegate.m; path = Classes/ParticlesAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* ParticlesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticlesAppDelegate.h; path = Classes/ParticlesAppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -81,7 +83,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Particles.app */,
+				1D6058910D05DD3D006BFB54 /* GLGravity.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +112,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1F1CDF300F853B850013DAE0 /* star.pvr4 */,
 				1F5240810F4E0A0A00445577 /* click.wav */,
 				1F22D0FE0F1D38B500789128 /* Particle.png */,
 				1F69C9EC0F1BCE580060215C /* texture.png */,
@@ -172,7 +175,7 @@
 			);
 			name = Particles;
 			productName = foo;
-			productReference = 1D6058910D05DD3D006BFB54 /* Particles.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* GLGravity.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,6 +206,7 @@
 				1F69C9ED0F1BCE580060215C /* texture.png in Resources */,
 				1F22D0FF0F1D38B500789128 /* Particle.png in Resources */,
 				1F5240820F4E0A0A00445577 /* click.wav in Resources */,
+				1F1CDF310F853B850013DAE0 /* star.pvr4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

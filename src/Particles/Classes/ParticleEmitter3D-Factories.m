@@ -12,6 +12,33 @@
 @implementation ParticleEmitter3D(Factories)
 #pragma mark -
 #pragma mark Factory Methods
++ (id)sparkleEmitter
+{
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"star" ofType:@"pvr4"];
+	OpenGLTexture3D *texture = [[OpenGLTexture3D alloc] initWithFilename:path width:64 height:64]; 
+	return [[[ParticleEmitter3D alloc] initWithName:@"Fountain Emitter" 
+										   position:Vertex3DMake(0.0, 0.0, 0.0) 
+										   rotation:Rotation3DMake(0.0, 0.0, 0.0)
+									azimuthVariance:25.0
+									  pitchVariance:25.0 
+											  speed:2.0
+									  speedVariance:0.0
+								 particlesPerSecond:1200
+						 particlesPerSecondVariance:50.0 
+								   particleLifespan:15.0 
+						   particleLifespanVariance:1.0 
+										 startColor:Color3DMake(0.0, 0.0, 0.95, 1.0) 
+								 startColorVariance:Color3DMake(0.0, 0.0, 0.1, 0.0) 
+										finishColor:Color3DMake(0.7, 0.7, 1.0, 1.0)
+								finishColorVariance:Color3DMake(0.0, 0.0, 0.0, 0.0) 
+											  force:Vector3DMake(0.0, -1.25, .0)
+									  forceVariance:Vector3DMake(0.0, 0.0, 0.0)
+											   mode:ParticleEmitter3DDrawTextureMap
+									   particleSize:3
+							   particleSizeVariance:3
+											texture:texture] autorelease];
+	[texture release];
+}
 + (id)fountainEmitter
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"particle" ofType:@"pvr4"];
