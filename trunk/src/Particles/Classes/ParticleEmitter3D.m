@@ -175,6 +175,10 @@ void Particle3DCullDeadParticles(ParticleEmitter3D *emitter)
 		{
 			Particle3DMoveParticleToPool(oneParticle, emitter);
 			emitter.currentParticleCount--;
+			if ( oneParticle == emitter.particle )
+			{
+				emitter.particle = nextParticle;
+			}
 		}
 		oneParticle = nextParticle;
 	}
