@@ -1,0 +1,1 @@
+This is a particle generator I wrote to help learn OpenGL ES 1.1 better. This project is intended for use on the iPhone, though I imagine large chunks of it could be ported to other embedded devices that support OpenGL ES 1.1 or higher.
